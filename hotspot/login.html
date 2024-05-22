@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="pragma" content="no-cache" />
+  <meta http-equiv="expires" content="-1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>اسلام زيان للإنترنت - تسجيل الدخول</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<!-- 
+لونين آخرين 
+class="lite" 
+class="dark"
+-->
+
+<body>
+  <div class="theme-selector">
+    <select id="theme-select">
+      <option disabled selected>اختر الثيم</option>
+      <option value="dark">غامق</option>
+      <option value="lite">ابيض</option>
+      <option value="blue">ازرق</option>
+    </select>
+    <button id="set-theme-btn">تأكيد</button>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', event => {
+        // عند تحميل الصفحة، قم بتعيين الثيم من localStorage إذا كان موجودًا
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+          document.body.className = savedTheme;
+          document.getElementById('theme-select').value = savedTheme;
+        }
+      });
+      document.getElementById('set-theme-btn').addEventListener('click', setTheme);
+      function setTheme() {
+        const selectElement = document.getElementById('theme-select');
+        const selectedValue = selectElement.value;
+
+        // تخزين القيمة في localStorage
+        localStorage.setItem('theme', selectedValue);
+
+        // تغيير class الخاص بعنصر body
+        document.body.className = selectedValue;
+      }
+    </script>
+  </div>
+  $(if chap-id)
+  <form name="sendin" action="$(link-login-only)" method="post" style="display: none">
+    <input type="hidden" name="username" />
+    <input type="hidden" name="password" />
+    <input type="hidden" name="dst" value="$(link-orig)" />
+    <input type="hidden" name="popup" value="true" />
+  </form>
+
+  <script src="/md5.js"></script>
+  <script>
+    function doLogin() {
+      document.sendin.username.value = document.login.username.value;
+      document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+      document.sendin.submit();
+      return false;
+    }
+  </script>
+  $(endif)
+  <div class="ie-fixMinHeight">
+    <div class="main">
+      <div class="wrap animated fadeIn">
+        <form name="login" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
+          <input type="hidden" name="dst" value="$(link-orig)" />
+          <input type="hidden" name="popup" value="true" />
+          <svg class="logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 174 42">
+            <!-- محتوى SVG -->
+          </svg>
+
+          <p class="info $(if error)alert$(endif)">
+            $(if error == "")يرجى تسجيل الدخول لاستخدام خدمة نقطة اتصال الإنترنت $(if trial == 'yes')<br />تجربة مجانية
+            متاحة، <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">اضغط هنا</a>.$(endif)
+            $(endif) $(if error)$(error)$(endif)
+          </p>
+          <label>
+            <img class="ico" src="img/user.svg" alt="#" />
+            <input name="username" type="number" value="$(username)" placeholder="اسم المستخدم" />
+          </label>
+
+          <label style="display: none">
+            <img class="ico" src="img/password.svg" alt="#" />
+            <input name="password" type="password" placeholder="كلمة المرور" />
+          </label>
+
+          <input type="submit" value="اتصال" />
+        </form>
+        <p class="info bt">شبكة اسلام زيان للأنترنت</p>
+      </div>
+    </div>
+  </div>
+  <div class="center">
+    <div class="custom-table-container">
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th colspan="4" class="table-title">أسعار كروت الانترنت</th>
+          </tr>
+          <tr>
+            <th>سعر الكارت</th>
+            <th>الوقت</th>
+            <th>كمية الجيجات</th>
+            <th>نوع الاشتراك</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1 جنيه</td>
+            <td>3 ساعات</td>
+            <td>100 ميجا</td>
+            <td>موبايل</td>
+          </tr>
+          <tr class="alt-row">
+            <td>2 جنيه</td>
+            <td>12 ساعة</td>
+            <td>250 ميجا</td>
+            <td>موبايل</td>
+          </tr>
+          <tr>
+            <td>5 جنيه</td>
+            <td>48 ساعة</td>
+            <td>800 ميجا</td>
+            <td>موبايل</td>
+          </tr>
+          <tr class="alt-row">
+            <td>10 جنيه</td>
+            <td>5 أيام</td>
+            <td>2 جيجا</td>
+            <td>موبايل</td>
+          </tr>
+          <tr>
+            <td>15 جنيه</td>
+            <td>7 أيام</td>
+            <td>3 جيجا</td>
+            <td>موبايل</td>
+          </tr>
+          <tr class="alt-row">
+            <td>20 جنيه</td>
+            <td>10 أيام</td>
+            <td>4.5 جيجا</td>
+            <td>موبايل</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="custom-table-container">
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th colspan="4" class="header">أسعار باقات الانترنت</th>
+          </tr>
+          <tr>
+            <th>سعر الكارت</th>
+            <th>الوقت</th>
+            <th>كمية الجيجات</th>
+            <th>نوع الاشتراك</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>30 جنيه</td>
+            <td>شهر</td>
+            <td>9 جيجا</td>
+            <td>موبايل</td>
+          </tr>
+          <tr class="alt-row">
+            <td>40 جنيه</td>
+            <td>شهر</td>
+            <td>12 جيجا</td>
+            <td>موبايل</td>
+          </tr>
+          <tr>
+            <td>50 جنيه</td>
+            <td>شهر</td>
+            <td>18 جيجا</td>
+            <td>موبايل</td>
+          </tr>
+          <tr class="alt-row">
+            <td>100 جنيه</td>
+            <td>شهر</td>
+            <td>40 جيجا</td>
+            <td>موبايل</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>
