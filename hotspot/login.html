@@ -8,16 +8,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>اسلام زيان للإنترنت - تسجيل الدخول</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/bootstrap.rtl.min.css" />
+  <!-- <link rel="stylesheet" href="css/bootstrap.rtl.min.css" /> -->
 </head>
 
 <!-- 
 لونين آخرين 
 class="lite" 
 class="dark"
+class="blue"
 -->
 
-<body>
+<body class="dark">
   <!-- box theme selector -->
   <div class="theme-selector">
     <select id="theme-select">
@@ -84,7 +85,7 @@ class="dark"
             $(endif) $(if error)$(error)$(endif)
           </p> -->
           <h3 class="login-header">يرجى تسجيل الدخول لاستخدام الإنترنت </h3>
-          <label>
+          <label >
             <img class="ico" src="img/user.svg" alt="#" />
             <input name="username" type="number" value="$(username)" placeholder="اسم المستخدم" />
           </label>
