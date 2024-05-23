@@ -43,13 +43,15 @@ body {
   margin: 3px;
   font-weight: bold;
 }
+.theme-selector select{
+  width: fit-content;
+}
 .theme-selector select,
 .theme-selector button {
   padding: 3px;
   margin: 4px;
   border: 1px solid #ccc;
   border-radius: 3px;
-  width: 55px;
 }
 .theme-selector button {
   display: block;
