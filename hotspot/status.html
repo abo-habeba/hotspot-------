@@ -108,12 +108,13 @@
     </div>
     <!-- islam -->
     <script type="text/javascript">
-        document.getElementById("timeLeft").innerHTML = "$(session-time-left)"
+        var timeLeft = "$(session-time-left)";
+        var indexOfT = '$(session-time-left)'.indexOf("m");
+        document.getElementById("timeLeft").innerHTML = timeLeft.substring(0, indexOfT + 1)
             .replace(/(\d+)w/, '<span class="time-segment"><span>$1</span> اسبوع </span>')
             .replace(/(\d+)d/, '<span class="time-segment"><span>$1</span> يوم </span>')
             .replace(/(\d+)h/, '<span class="time-segment"><span>$1</span> ساعة </span>')
-            .replace(/(\d+)m/, '<span class="time-segment"><span>$1</span> دقيقة </span>')
-            .replace(/(\d+)s/, '<span class="time-segment"><span>$1</span> ثانية</span>');
+            .replace(/(\d+)m/, '<span class="time-segment"><span>$1</span> دقيقة </span>');
     </script>
 </body>
 

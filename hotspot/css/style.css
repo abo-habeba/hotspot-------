@@ -164,7 +164,7 @@ h1 {
 
 .wrap {
   margin: auto;
-  padding: 5px;
+  padding: 40px;
   -webkit-transition: width 0.3s ease-in-out;
   transition: width 0.3s ease-in-out;
 }
