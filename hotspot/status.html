@@ -1,19 +1,20 @@
+<!DOCTYPE html>
 <html lang="ar">
 
 <head>
     $(if refresh-timeout)
     <meta http-equiv="refresh" content="$(refresh-timeout-secs)">
     $(endif)
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="expires" content="-1">
     <title>اسلام زيان للانترنت - الحالة</title>
     <link rel="stylesheet" href="css/style.css">
-    <script>
-
-        $(if advert - pending == 'yes')
-            var popup = '';
+    <!-- <script>
+        $(if advert-pending == 'yes')
+        var popup = '';
         function focusAdvert() {
             if (window.focus) popup.focus();
         }
@@ -22,80 +23,120 @@
             setTimeout("focusAdvert()", 1000);
         }
         $(endif)
+
         function openLogout() {
             if (window.name != 'hotspot_status') return true;
             open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
             window.close();
             return false;
         }
+    </script> -->
+
+    <script>
+        function readablizeBytes(bytes) {
+            const sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(1024));
+            return (bytes / Math.pow(1024, i)).toFixed(2) + ' ' + sizes[i];
+        }
+
+        function TrafficFunction() {
+            const totalBytes = parseFloat("${limit-bytes-total}".replace(" GiB", ""));
+            const remainingBytes = parseFloat("${remain-bytes-total-nice}".replace(" GiB", ""));
+            const percentage = (remainingBytes / totalBytes) * 100;
+            document.getElementById("mybar").style.width = percentage + "%";
+        }
+
+        function start() {
+            TrafficFunction();
+            openAdvert();
+        }
+
+        window.onload = start;
     </script>
+
+
+    <script language="JavaScript">
+        function readablizeBytes(bytes) {
+            const sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
+            var e = Math.floor(Math.log(bytes) / Math.log(1024));
+            return (bytes / Math.pow(1024, Math.floor(e))).toFixed(2) + " " + s[e];
+        }
+
+        function TrafficFunction() {
+            var totalGBs = "$(limit-bytes-total)";
+
+            var str = "$(remain-bytes-total-nice)";
+            var ColorRes3 = totalGBs.replace(" GiB", "");
+            var ColorRes4 = str.replace(" GiB", "");
+            var total_write = ColorRes3 - ColorRes4;
+            var res = str.replace(" GiB", "%");
+            var ColorRes = str.replace(" GiB", "");
+
+
+            var to4 = total_write + "%";
+
+            document.getElementById("mybar").style.width = to4;
+
+
+
+        }
+
+        function start() {
+            TrafficFunction();
+            openAdvert();
+        }
+        window.onload = start;
+    </script>
+    <style>
+        #timeLeft {
+            direction: rtl;
+            unicode-bidi: isolate-override;
+            font-size: 16pt;
+            font-family: Arial, sans-serif;
+        }
+
+        .time-segment {
+            margin: 0 5px;
+        }
+
+        .time-segment span {
+            font-weight: bold;
+        }
+    </style>
+
 
 </head>
 
 <body $(if advert-pending=='yes' ) onLoad="openAdvert()" $(endif)>
-    <div class="theme-selector">
-        <select id="theme-select">
-            <option disabled selected>اختر الثيم</option>
-            <option value="dark">غامق</option>
-            <option value="lite">ابيض</option>
-            <option value="blue">ازرق</option>
-        </select>
-        <button id="set-theme-btn">تأكيد</button>
-    </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', event => {
-            // عند تحميل الصفحة، قم بتعيين الثيم من localStorage إذا كان موجودًا
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-                document.body.className = savedTheme;
-                document.getElementById('theme-select').value = savedTheme;
-            }
-        });
-        document.getElementById('set-theme-btn').addEventListener('click', setTheme);
-        function setTheme() {
-            const selectElement = document.getElementById('theme-select');
-            const selectedValue = selectElement.value;
-
-            // تخزين القيمة في localStorage
-            localStorage.setItem('theme', selectedValue);
-
-            // تغيير class الخاص بعنصر body
-            document.body.className = selectedValue;
-        }
-    </script>
-    <!-- box bytes  total -->
-    <div class="bytes-total">
-
-        <center>
-            <span style="font-weight:bold; font-size:21px">
-                الجيجات المتبقية لديك :-
-                <script language="JavaScript">document.write(readablizeBytes($(remain - bytes - total)));</script>
-            </span>
-        </center>
-        <p>
-            <font style="font-size: 16pt"><b><span
-                        lang="ar-eg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        الوقت الباقي لديك</span></b>
-            </font>
-        </p>
-    </div>
     <div class="ie-fixMinHeight">
         <div class="main">
             <div class="wrap">
                 $(if login-by == 'trial')
                 <h1>مرحبًا، مستخدم التجربة!</h1>
                 $(elif login-by != 'mac')
-                <h1>مرحبًا، $(username)!</h1>
+                <h1>مرحبًا، $(username)</h1>
                 $(endif)
 
                 <form action="$(link-logout)" name="logout" onSubmit="return openLogout()">
                     <table>
                         <tr>
+                            <td> الوقت الباقي </td>
+                            <td>$(session-time-left)</td>
+                        </tr>
+                        <tr>
+                            <td> الجيجات المتبقية </td>
+                            <td>$(remain-bytes-total-nice)</td>
+                        </tr>
+                        <tr>
+                            <td> الوقت الباقي </td>
+                            <td id="timeLeft"></td>
+                        </tr>
+                        <tr>
                             <td>عنوان IP</td>
                             <td>$(ip)</td>
                         </tr>
                         <tr>
-                            <td>البايتات الصاعدة / النازلة</td>
+                            <td>تحميل / تنزيل</td>
                             <td>$(bytes-in-nice) / $(bytes-out-nice)</td>
                         </tr>
                         $(if session-time-left)
@@ -124,8 +165,8 @@
                         $(endif)
                     </table>
                     $(if login-by-mac != 'yes')
-                    <!-- رابط مدير المستخدمين. إذا كان مدير المستخدمين يقيم على راوتر آخر، استبدل $(hostname) بعنوانه
-                    <button onclick="document.location='http://$(hostname)/user?subs='; return false;">الحالة</button>
+                    <!-- رابط مدير المستخدمين. إذا كان مدير المستخدمين يقيم على راوتر آخر، استبدل $(hostname) بعنوانه -->
+                    <!-- <button onclick="document.location='http://$(hostname)/user?subs='; return false;">الحالة</button> -->
                     <!-- نهاية رابط مدير المستخدمين -->
                     <input type="submit" value="تسجيل الخروج">
                     $(endif)
@@ -133,6 +174,16 @@
             </div>
         </div>
     </div>
+    <!-- islam -->
+    <script type="text/javascript">
+        document.getElementById("timeLeft").innerHTML = "$(session-time-left)"
+            .replace(/(\d+)w/, '<span class="time-segment"><span>$1</span> اسبوع </span>')
+            .replace(/(\d+)d/, '<span class="time-segment"><span>$1</span> يوم </span>')
+            .replace(/(\d+)h/, '<span class="time-segment"><span>$1</span> ساعة </span>')
+            .replace(/(\d+)m/, '<span class="time-segment"><span>$1</span> دقيقة </span>')
+            .replace(/(\d+)s/, '<span class="time-segment"><span>$1</span> ثانية</span>');
+    </script>
 </body>
+
 
 </html>
