@@ -12,80 +12,19 @@
     <meta http-equiv="expires" content="-1">
     <title>اسلام زيان للانترنت - الحالة</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- <script>
-        $(if advert-pending == 'yes')
-        var popup = '';
-        function focusAdvert() {
-            if (window.focus) popup.focus();
-        }
-        function openAdvert() {
-            popup = open('$(link-advert)', 'hotspot_advert', '');
-            setTimeout("focusAdvert()", 1000);
-        }
-        $(endif)
-
-        function openLogout() {
-            if (window.name != 'hotspot_status') return true;
-            open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
-            window.close();
-            return false;
-        }
-    </script> -->
-
-    <script>
-        function readablizeBytes(bytes) {
-            const sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
-            const i = Math.floor(Math.log(bytes) / Math.log(1024));
-            return (bytes / Math.pow(1024, i)).toFixed(2) + ' ' + sizes[i];
-        }
-
+    <script language="JavaScript">
         function TrafficFunction() {
             const totalBytes = parseFloat("${limit-bytes-total}".replace(" GiB", ""));
             const remainingBytes = parseFloat("${remain-bytes-total-nice}".replace(" GiB", ""));
             const percentage = (remainingBytes / totalBytes) * 100;
             document.getElementById("mybar").style.width = percentage + "%";
         }
-
-        function start() {
-            TrafficFunction();
-            openAdvert();
-        }
-
-        window.onload = start;
-    </script>
-
-
-    <script language="JavaScript">
-        function readablizeBytes(bytes) {
-            const sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
-            var e = Math.floor(Math.log(bytes) / Math.log(1024));
-            return (bytes / Math.pow(1024, Math.floor(e))).toFixed(2) + " " + s[e];
-        }
-
         function TrafficFunction() {
             var totalGBs = "$(limit-bytes-total)";
 
             var str = "$(remain-bytes-total-nice)";
-            var ColorRes3 = totalGBs.replace(" GiB", "");
-            var ColorRes4 = str.replace(" GiB", "");
-            var total_write = ColorRes3 - ColorRes4;
-            var res = str.replace(" GiB", "%");
-            var ColorRes = str.replace(" GiB", "");
-
-
-            var to4 = total_write + "%";
-
             document.getElementById("mybar").style.width = to4;
-
-
-
         }
-
-        function start() {
-            TrafficFunction();
-            openAdvert();
-        }
-        window.onload = start;
     </script>
     <style>
         #timeLeft {
