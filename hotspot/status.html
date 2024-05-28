@@ -29,12 +29,11 @@
     <style>
         #timeLeft {
             direction: rtl;
-            unicode-bidi: isolate-override;
             text-align: left;
         }
 
         .time-segment {
-            margin: 0 5px;
+            margin: 0 1px;
         }
 
         .time-segment span {
@@ -54,7 +53,6 @@
                 $(elif login-by != 'mac')
                 <h1>مرحبًا، $(username)</h1>
                 $(endif)
-
                 <form action="$(link-logout)" name="logout" onSubmit="return openLogout()">
                     <table>
                         <tr>
