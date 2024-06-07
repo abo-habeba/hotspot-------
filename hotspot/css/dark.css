@@ -1,0 +1,42 @@
+
+.dark {
+  background: #343434;
+}
+
+.dark input[type='submit'] {
+  background: #000;
+}
+
+.dark input[type='submit']:focus,
+.dark input[type='submit']:hover {
+  background: #b92f35;
+}
+
+.dark input[type='password'],
+.dark input[type='text'] {
+  background-color: #fff;
+}
+
+.dark a {
+  color: #000;
+}
+
+.dark table td {
+  border-bottom: 1px solid #505050;
+}
+
+
+.dark .custom-table th,
+.dark .custom-table td {
+  border: 1px ridge white;
+}
+
+.dark .custom-table th {
+  background-color: #828687;
+  color: #fff;
+}
+.dark .info,
+.dark h1,
+.dark table td {
+  color: #fff;
+}

@@ -8,7 +8,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>اسلام زيان للإنترنت - تسجيل الدخول</title>
   <link rel="stylesheet" href="css/style.css" />
-  <!-- <link rel="stylesheet" href="css/bootstrap.rtl.min.css" /> -->
+  <link rel="stylesheet" href="css/dark.css" />
+  <link rel="stylesheet" href="css/blue.css" />
+  <link rel="stylesheet" href="css/lite.css" />
+  <!-- <link rel="stylesheet" href="css/bootstrap.rtl.min.css" />
 </head>
 
 <!-- 
@@ -71,21 +74,17 @@ class="blue"
   $(endif)
   <div class="ie-fixMinHeight">
     <div class="main">
+      <h1 class="logo bt">شبكة اسلام زيان للأنترنت</h1>
       <div class="wrap animated fadeIn">
         <form name="login" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
           <input type="hidden" name="dst" value="$(link-orig)" />
           <input type="hidden" name="popup" value="true" />
-          <svg class="logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 174 42">
-            <!-- محتوى SVG -->
-          </svg>
-
           <!-- <p class="info $(if error)alert$(endif)">
             $(if error == "")$(if trial == 'yes')<br />لتجربة الانترنت بشكل مجاني
              <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">اضغط هنا</a>.$(endif)
             $(endif) $(if error)$(error)$(endif)
           </p> -->
-          <h3 class="login-header">يرجى تسجيل الدخول لاستخدام الإنترنت </h3>
-          <label >
+          <label>
             <img class="ico" src="img/user.svg" alt="#" />
             <input name="username" type="number" value="$(username)" placeholder="اسم المستخدم" />
           </label>
@@ -97,14 +96,37 @@ class="blue"
 
           <input type="submit" value="اتصال" />
         </form>
-        <p class="info bt">شبكة اسلام زيان للأنترنت</p>
+      </div>
+      <div class="box-detils">
+        <div class="box-btn">
+          <a href="#card-prices"><input type="submit" value=" لمعرفة المزيد عن أسعار الانترنت " /></a>
+        </div>
+        <!-- <div class="box-btn">
+        <a href="#card-prices"><input type="submit" value="أسعار كروت الانترنت" /></a>
+        <a href="#card-prices"><input type="submit" value="أسعار باقات الانترنت" /></a>
+      </div> -->
+        <div class="box-social">
+          <a class="info bt" href="tel:01094996452">01094996452</a>
+          <a class="info bt" href="tel:01553353503">01553353503</a>
+        </div>
+        <div class="box-social">
+          <a class="info box-social scroll-button" href="https://wa.me/+201013747217">
+            <span>راسلنا عبر اتساب</span>
+            <img src="img/whatsapp.png">
+          </a>
+        </div>
+        <div class="box-info">
+          <p class="info bt">مواعيد الدعم يوميا من الساعة 10 صباحا إلى الساعة 10 مساء</p>
+          <p class="info bt">لا يمكن تشغيل الخدمة قبل سداد الاشتراك</p>
+          <a class="info bt" href="eslamnet.apk"> لتحميل برنامج الشبكة </a>
+        </div>
       </div>
     </div>
   </div>
-  <div class="center">
-    <div class="custom-table-container">
+  <div id="box-prices" class="center">
+    <div id="card-prices" class="custom-table-container">
       <table class="custom-table">
-      <!-- <table class="custom-table table table-striped table-dark table-hover"> -->
+        <!-- <table class="custom-table table table-striped table-dark table-hover"> -->
         <thead>
           <tr>
             <th colspan="4" class="table-title">أسعار كروت الانترنت</th>
@@ -156,8 +178,7 @@ class="blue"
         </tbody>
       </table>
     </div>
-
-    <div class="custom-table-container">
+    <div id="package-prices" class="custom-table-container">
       <table class="custom-table">
         <thead>
           <tr>

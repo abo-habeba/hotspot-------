@@ -5,27 +5,15 @@
     $(if refresh-timeout)
     <meta http-equiv="refresh" content="$(refresh-timeout-secs)">
     $(endif)
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="expires" content="-1">
     <title>اسلام زيان للانترنت - الحالة</title>
-    <link rel="stylesheet" href="css/style.css">
-    <!-- <script language="JavaScript">
-        function TrafficFunction() {
-            const totalBytes = parseFloat("${limit-bytes-total}".replace(" GiB", ""));
-            const remainingBytes = parseFloat("${remain-bytes-total-nice}".replace(" GiB", ""));
-            const percentage = (remainingBytes / totalBytes) * 100;
-            document.getElementById("mybar").style.width = percentage + "%";
-        }
-        function TrafficFunction() {
-            var totalGBs = "$(limit-bytes-total)";
-
-            var str = "$(remain-bytes-total-nice)";
-            document.getElementById("mybar").style.width = to4;
-        }
-    </script> -->
+    <link rel="stylesheet" href="css/dark.css" />
+    <link rel="stylesheet" href="css/blue.css" />
+    <link rel="stylesheet" href="css/lite.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <style>
         #timeLeft {
             direction: rtl;
@@ -40,13 +28,44 @@
             font-weight: bold;
         }
     </style>
-
-
 </head>
 
 <body $(if advert-pending=='yes' ) onLoad="openAdvert()" $(endif)>
+    <!-- box theme selector -->
+    <div class="theme-selector">
+        <select id="theme-select">
+            <option disabled selected>اختر الثيم</option>
+            <option value="dark">غامق</option>
+            <option value="lite">ابيض</option>
+            <option value="blue">ازرق</option>
+        </select>
+        <button id="set-theme-btn">تأكيد</button>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', event => {
+                // عند تحميل الصفحة، قم بتعيين الثيم من localStorage إذا كان موجودًا
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme) {
+                    document.body.className = savedTheme;
+                    document.getElementById('theme-select').value = savedTheme;
+                }
+            });
+            document.getElementById('set-theme-btn').addEventListener('click', setTheme);
+            function setTheme() {
+                const selectElement = document.getElementById('theme-select');
+                const selectedValue = selectElement.value;
+
+                // تخزين القيمة في localStorage
+                localStorage.setItem('theme', selectedValue);
+
+                // تغيير class الخاص بعنصر body
+                document.body.className = selectedValue;
+            }
+        </script>
+    </div>
     <div class="ie-fixMinHeight">
         <div class="main">
+            <h1 class="logo bt">شبكة اسلام زيان للأنترنت</h1>
             <div class="wrap">
                 $(if login-by == 'trial')
                 <h1>مرحبًا، مستخدم التجربة!</h1>
@@ -104,6 +123,127 @@
                     $(endif)
                 </form>
             </div>
+            <div class="box-detils">
+                <div class="box-btn">
+                    <a href="#card-prices"><input type="submit" value=" لمعرفة المزيد عن أسعار الانترنت " /></a>
+                </div>
+                <!-- <div class="box-btn">
+                        <a href="#card-prices"><input type="submit" value="أسعار كروت الانترنت" /></a>
+                        <a href="#card-prices"><input type="submit" value="أسعار باقات الانترنت" /></a>
+                    </div> -->
+                <div class="box-social">
+                    <a class="info bt" href="tel:01094996452">01094996452</a>
+                    <a class="info bt" href="tel:01553353503">01553353503</a>
+                </div>
+                <div class="box-social">
+                    <a class="info box-social scroll-button" href="https://wa.me/+201013747217">
+                        <span>راسلنا عبر اتساب</span>
+                        <img src="img/whatsapp.png">
+                    </a>
+                </div>
+                <div class="box-info">
+                    <p class="info bt">مواعيد الدعم يوميا من الساعة 10 صباحا إلى الساعة 10 مساء</p>
+                    <p class="info bt">لا يمكن تشغيل الخدمة قبل سداد الاشتراك</p>
+                    <a class="info bt" href="eslamnet.apk"> لتحميل برنامج الشبكة </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="box-prices" class="center">
+        <div id="card-prices" class="custom-table-container">
+            <table class="custom-table">
+                <!-- <table class="custom-table table table-striped table-dark table-hover"> -->
+                <thead>
+                    <tr>
+                        <th colspan="4" class="table-title">أسعار كروت الانترنت</th>
+                    </tr>
+                    <tr>
+                        <th>سعر الكارت</th>
+                        <th>الوقت</th>
+                        <th>كمية الجيجات</th>
+                        <th>نوع الاشتراك</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1 جنيه</td>
+                        <td>3 ساعات</td>
+                        <td>100 ميجا</td>
+                        <td>موبايل</td>
+                    </tr>
+                    <tr class="alt-row">
+                        <td>2 جنيه</td>
+                        <td>12 ساعة</td>
+                        <td>250 ميجا</td>
+                        <td>موبايل</td>
+                    </tr>
+                    <tr>
+                        <td>5 جنيه</td>
+                        <td>48 ساعة</td>
+                        <td>800 ميجا</td>
+                        <td>موبايل</td>
+                    </tr>
+                    <tr class="alt-row">
+                        <td>10 جنيه</td>
+                        <td>5 أيام</td>
+                        <td>2 جيجا</td>
+                        <td>موبايل</td>
+                    </tr>
+                    <tr>
+                        <td>15 جنيه</td>
+                        <td>7 أيام</td>
+                        <td>3 جيجا</td>
+                        <td>موبايل</td>
+                    </tr>
+                    <tr class="alt-row">
+                        <td>20 جنيه</td>
+                        <td>10 أيام</td>
+                        <td>4.5 جيجا</td>
+                        <td>موبايل</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="package-prices" class="custom-table-container">
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th colspan="4" class="header">أسعار باقات الانترنت</th>
+                    </tr>
+                    <tr>
+                        <th>سعر الكارت</th>
+                        <th>الوقت</th>
+                        <th>كمية الجيجات</th>
+                        <th>نوع الاشتراك</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>30 جنيه</td>
+                        <td>شهر</td>
+                        <td>9 جيجا</td>
+                        <td>موبايل</td>
+                    </tr>
+                    <tr class="alt-row">
+                        <td>40 جنيه</td>
+                        <td>شهر</td>
+                        <td>12 جيجا</td>
+                        <td>موبايل</td>
+                    </tr>
+                    <tr>
+                        <td>50 جنيه</td>
+                        <td>شهر</td>
+                        <td>18 جيجا</td>
+                        <td>موبايل</td>
+                    </tr>
+                    <tr class="alt-row">
+                        <td>100 جنيه</td>
+                        <td>شهر</td>
+                        <td>40 جيجا</td>
+                        <td>موبايل</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
     <!-- islam -->
@@ -117,6 +257,5 @@
             .replace(/(\d+)m/, '<span class="time-segment"><span>$1</span> دقيقة </span>');
     </script>
 </body>
-
 
 </html>

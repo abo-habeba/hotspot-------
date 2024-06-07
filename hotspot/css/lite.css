@@ -1,0 +1,49 @@
+
+.lite .login-header{
+  color: black;
+}
+
+.lite {
+  background: #fff;
+}
+.lite .bytes-total {
+  color: black;
+}
+.lite input[type='password'],
+.lite input[type='text'] {
+  border: 1px solid #c3c3c3;
+}
+
+.lite .info,
+.lite h1,
+.lite table td {
+  color: #444;
+}
+
+.lite input[type='password']:focus,
+.lite input[type='text']:focus {
+  -webkit-box-shadow: 0 0 5px 0 rgba(62, 77, 89, 0.2);
+  box-shadow: 0 0 5px 0 rgba(62, 77, 89, 0.2);
+}
+.lite .custom-table th {
+  background-color: white;
+  color: black;
+}
+.lite .custom-table th,
+.lite .custom-table td {
+  border: 1px ridge black;
+}
+
+
+.custom-table td {
+  background-color: #e8eaeb;
+  color: #000;
+}
+.lite .custom-table td {
+  background-color: white;
+  color: #000;
+}
+
+.lite .custom-table .alt-row {
+  background-color: white;
+}
